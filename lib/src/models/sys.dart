@@ -24,5 +24,11 @@ class Sys extends Equatable {
   Map<String, dynamic> toJson() => _$SysToJson(this);
 
   @override
-  List<Object?> get props => [type, id, country, sunrise, sunset];
+  List<Object?> get props => [
+        type,
+        id,
+        country,
+        sunrise,
+        sunset,
+      ];
 }

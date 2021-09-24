@@ -23,5 +23,10 @@ class Weather extends Equatable {
   Map<String, dynamic> toJson() => _$WeatherToJson(this);
 
   @override
-  List<Object?> get props => [id, main, description, icon];
+  List<Object?> get props => [
+        id,
+        main,
+        description,
+        icon,
+      ];
 }

@@ -52,6 +52,6 @@ class BaseResponse extends Equatable {
         timezone,
         id,
         name,
-        cod
+        cod,
       ];
 }

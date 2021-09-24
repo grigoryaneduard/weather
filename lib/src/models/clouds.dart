@@ -16,5 +16,7 @@ class Clouds extends Equatable {
   Map<String, dynamic> toJson() => _$CloudsToJson(this);
 
   @override
-  List<Object?> get props => [all];
+  List<Object?> get props => [
+        all,
+      ];
 }

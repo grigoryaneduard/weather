@@ -18,5 +18,8 @@ class Coord extends Equatable {
   Map<String, dynamic> toJson() => _$CoordToJson(this);
 
   @override
-  List<Object?> get props => [lon, lat];
+  List<Object?> get props => [
+        lon,
+        lat,
+      ];
 }

@@ -26,6 +26,12 @@ class Main extends Equatable {
   Map<String, dynamic> toJson() => _$MainToJson(this);
 
   @override
-  List<Object?> get props =>
-      [temp, feelsLike, tempMin, tempMax, pressure, humidity];
+  List<Object?> get props => [
+        temp,
+        feelsLike,
+        tempMin,
+        tempMax,
+        pressure,
+        humidity,
+      ];
 }

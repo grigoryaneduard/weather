@@ -6,13 +6,19 @@ part of 'sys.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Sys _$SysFromJson(Map<String, dynamic> json) => Sys(
-      type: json['type'] as int,
-      id: json['id'] as int,
-      country: json['country'] as String,
-      sunrise: json['sunrise'] as int,
-      sunset: json['sunset'] as int,
-    );
+Sys _$SysFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['id'],
+  );
+  return Sys(
+    type: json['type'] as int,
+    id: json['id'] as int,
+    country: json['country'] as String,
+    sunrise: json['sunrise'] as int,
+    sunset: json['sunset'] as int,
+  );
+}
 
 Map<String, dynamic> _$SysToJson(Sys instance) => <String, dynamic>{
       'type': instance.type,

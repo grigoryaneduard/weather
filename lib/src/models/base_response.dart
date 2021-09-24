@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'base_response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class BaseResponse extends Equatable {
   @JsonKey(name: 'coord')
   final Coord coord;

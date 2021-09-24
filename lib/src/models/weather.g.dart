@@ -6,12 +6,18 @@ part of 'weather.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Weather _$WeatherFromJson(Map<String, dynamic> json) => Weather(
-      id: json['id'] as int,
-      main: json['main'] as String,
-      description: json['description'] as String,
-      icon: json['icon'] as String,
-    );
+Weather _$WeatherFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['id'],
+  );
+  return Weather(
+    id: json['id'] as int,
+    main: json['main'] as String,
+    description: json['description'] as String,
+    icon: json['icon'] as String,
+  );
+}
 
 Map<String, dynamic> _$WeatherToJson(Weather instance) => <String, dynamic>{
       'id': instance.id,

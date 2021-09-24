@@ -8,18 +8,18 @@ part of 'main.dart';
 
 Main _$MainFromJson(Map<String, dynamic> json) => Main(
       temp: (json['temp'] as num).toDouble(),
-      feelsLike: (json['feelsLike'] as num).toDouble(),
-      tempMin: (json['tempMin'] as num).toDouble(),
-      tempMax: (json['tempMax'] as num).toDouble(),
+      feelsLike: (json['feels_like'] as num).toDouble(),
+      tempMin: (json['temp_min'] as num).toDouble(),
+      tempMax: (json['temp_max'] as num).toDouble(),
       pressure: (json['pressure'] as num).toDouble(),
       humidity: (json['humidity'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$MainToJson(Main instance) => <String, dynamic>{
       'temp': instance.temp,
-      'feelsLike': instance.feelsLike,
-      'tempMin': instance.tempMin,
-      'tempMax': instance.tempMax,
+      'feels_like': instance.feelsLike,
+      'temp_min': instance.tempMin,
+      'temp_max': instance.tempMax,
       'pressure': instance.pressure,
       'humidity': instance.humidity,
     };

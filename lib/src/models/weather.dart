@@ -5,9 +5,16 @@ part 'weather.g.dart';
 
 @JsonSerializable()
 class Weather extends Equatable {
+  @JsonKey(required: true, name: 'id')
   final int id;
+
+  @JsonKey(name: 'main')
   final String main;
+
+  @JsonKey(name: 'description')
   final String description;
+
+  @JsonKey(name: 'icon')
   final String icon;
 
   const Weather({

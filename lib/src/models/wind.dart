@@ -5,7 +5,10 @@ part 'wind.g.dart';
 
 @JsonSerializable()
 class Wind extends Equatable {
+  @JsonKey(name: 'speed')
   final int speed;
+
+  @JsonKey(name: 'deg')
   final int deg;
 
   const Wind({

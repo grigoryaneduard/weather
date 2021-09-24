@@ -5,11 +5,22 @@ part 'main.g.dart';
 
 @JsonSerializable()
 class Main extends Equatable {
+  @JsonKey(name: 'temp')
   final double temp;
+
+  @JsonKey(name: 'feels_like')
   final double feelsLike;
+
+  @JsonKey(name: 'temp_min')
   final double tempMin;
+
+  @JsonKey(name: 'temp_max')
   final double tempMax;
+
+  @JsonKey(name: 'pressure')
   final double pressure;
+
+  @JsonKey(name: 'humidity')
   final double humidity;
 
   const Main({

@@ -5,10 +5,19 @@ part 'sys.g.dart';
 
 @JsonSerializable()
 class Sys extends Equatable {
+  @JsonKey(name: 'type')
   final int type;
+
+  @JsonKey(required: true, name: 'id')
   final int id;
+
+  @JsonKey(name: 'country')
   final String country;
+
+  @JsonKey(name: 'sunrise')
   final int sunrise;
+
+  @JsonKey(name: 'sunset')
   final int sunset;
 
   const Sys({

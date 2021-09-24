@@ -5,6 +5,7 @@ part 'clouds.g.dart';
 
 @JsonSerializable()
 class Clouds extends Equatable {
+  @JsonKey(name: 'all')
   final int all;
 
   const Clouds({

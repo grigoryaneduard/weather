@@ -6,17 +6,40 @@ part 'base_response.g.dart';
 
 @JsonSerializable()
 class BaseResponse extends Equatable {
+  @JsonKey(name: 'coord')
   final Coord coord;
+
+  @JsonKey(name: 'weather')
   final Weather weather;
+
+  @JsonKey(name: 'base')
   final String base;
+
+  @JsonKey(name: 'main')
   final Main main;
+
+  @JsonKey(name: 'visibility')
   final double visibility;
+
+  @JsonKey(name: 'wind')
   final Wind wind;
+
+  @JsonKey(name: 'dt')
   final int dt;
+
+  @JsonKey(name: 'sys')
   final Sys sys;
+
+  @JsonKey(name: 'timezone')
   final int timezone;
+
+  @JsonKey(required: true, name: 'id')
   final int id;
+
+  @JsonKey(name: 'name')
   final String name;
+
+  @JsonKey(name: 'cod')
   final int cod;
 
   const BaseResponse({

@@ -1,6 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:weather/src/models/models.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'base_response.g.dart';
+
+@JsonSerializable()
 class BaseResponse extends Equatable {
   final Coord coord;
   final Weather weather;
@@ -29,6 +33,11 @@ class BaseResponse extends Equatable {
     required this.name,
     required this.cod,
   });
+
+  factory BaseResponse.fromJson(Map<String, dynamic> json) =>
+      _$BaseResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BaseResponseToJson(this);
 
   @override
   List<Object?> get props => [

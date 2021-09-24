@@ -18,5 +18,8 @@ class Wind extends Equatable {
   Map<String, dynamic> toJson() => _$WindToJson(this);
 
   @override
-  List<Object?> get props => [speed, deg];
+  List<Object?> get props => [
+        speed,
+        deg,
+      ];
 }

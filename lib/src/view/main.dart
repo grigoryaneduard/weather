@@ -53,6 +53,9 @@ class _WeatherViewState extends State<WeatherView> {
                   Text('${state.data!.clouds.all}'),
 
                   const Divider(),
+                  Text('Kelvin: ${state.data!.main.temp}'),
+                  Text('Celsius: ${state.data!.main.tempToCelsius}'),
+                  Text('${state.data!.main.temp}'),
                   Text('${state.data!.main.feelsLike}'),
                   Text('${state.data!.main.humidity}'),
 

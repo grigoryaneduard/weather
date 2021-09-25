@@ -36,6 +36,8 @@ class Main extends Equatable {
 
   Map<String, dynamic> toJson() => _$MainToJson(this);
 
+  String get tempToCelsius => (temp - 273.15).toStringAsFixed(1);
+
   @override
   List<Object?> get props => [
         temp,

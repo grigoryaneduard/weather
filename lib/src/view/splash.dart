@@ -5,10 +5,8 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        Text('Splash Screen'),
-      ],
+    return const Scaffold(
+      body: Center(child: Text('Logo', style: TextStyle(fontSize: 18))),
     );
   }
 }

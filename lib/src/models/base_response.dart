@@ -10,7 +10,7 @@ class BaseResponse extends Equatable {
   final Coord coord;
 
   @JsonKey(name: 'weather')
-  final Weather weather;
+  final List<Weather> weather;
 
   @JsonKey(name: 'base')
   final String base;

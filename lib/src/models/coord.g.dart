@@ -7,8 +7,8 @@ part of 'coord.dart';
 // **************************************************************************
 
 Coord _$CoordFromJson(Map<String, dynamic> json) => Coord(
-      lon: json['lon'] as String,
-      lat: json['lat'] as String,
+      lon: (json['lon'] as num).toDouble(),
+      lat: (json['lat'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$CoordToJson(Coord instance) => <String, dynamic>{

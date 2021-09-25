@@ -6,10 +6,10 @@ part 'coord.g.dart';
 @JsonSerializable()
 class Coord extends Equatable {
   @JsonKey(name: 'lon')
-  final String lon;
+  final double lon;
 
   @JsonKey(name: 'lat')
-  final String lat;
+  final double lat;
 
   const Coord({
     required this.lon,

@@ -13,7 +13,9 @@ BaseResponse _$BaseResponseFromJson(Map<String, dynamic> json) {
   );
   return BaseResponse(
     coord: Coord.fromJson(json['coord'] as Map<String, dynamic>),
-    weather: Weather.fromJson(json['weather'] as Map<String, dynamic>),
+    weather: (json['weather'] as List<dynamic>)
+        .map((e) => Weather.fromJson(e as Map<String, dynamic>))
+        .toList(),
     base: json['base'] as String,
     main: Main.fromJson(json['main'] as Map<String, dynamic>),
     visibility: (json['visibility'] as num).toDouble(),
@@ -30,7 +32,7 @@ BaseResponse _$BaseResponseFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$BaseResponseToJson(BaseResponse instance) =>
     <String, dynamic>{
       'coord': instance.coord.toJson(),
-      'weather': instance.weather.toJson(),
+      'weather': instance.weather.map((e) => e.toJson()).toList(),
       'base': instance.base,
       'main': instance.main.toJson(),
       'visibility': instance.visibility,

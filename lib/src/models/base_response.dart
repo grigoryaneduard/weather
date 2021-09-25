@@ -24,6 +24,9 @@ class BaseResponse extends Equatable {
   @JsonKey(name: 'wind')
   final Wind wind;
 
+  @JsonKey(name: 'clouds')
+  final Clouds clouds;
+
   @JsonKey(name: 'dt')
   final int dt;
 
@@ -49,6 +52,7 @@ class BaseResponse extends Equatable {
     required this.main,
     required this.visibility,
     required this.wind,
+    required this.clouds,
     required this.dt,
     required this.sys,
     required this.timezone,
@@ -70,6 +74,7 @@ class BaseResponse extends Equatable {
         main,
         visibility,
         wind,
+        clouds,
         dt,
         sys,
         timezone,

@@ -5,4 +5,8 @@ abstract class BaseEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class BaseFetched extends BaseEvent {}
+class BaseFetched extends BaseEvent {
+  final Coord coord;
+
+  BaseFetched({required this.coord});
+}

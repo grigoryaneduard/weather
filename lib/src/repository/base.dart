@@ -14,7 +14,7 @@ class BaseRepository implements IBaseRepository {
   @override
   Future<BaseResponse> getBaseInfo(String location) async {
     final url =
-        '${AppCredentials.baseUrl}/weather?q=$location&appId:${AppCredentials.key}';
+        '${AppCredentials.baseUrl}/weather?q=$location&appId=${AppCredentials.key}';
 
     final response = await _dio.get(url);
 

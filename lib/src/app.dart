@@ -6,11 +6,14 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Weather',
+      darkTheme: ThemeData(
+        scaffoldBackgroundColor: Colors.blue[100],
+      ),
       themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: const MainScreen(),
     );
   }
 }

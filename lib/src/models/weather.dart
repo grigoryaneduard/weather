@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:weather/src/const/const.dart';
 
 part 'weather.g.dart';
 
@@ -28,6 +29,8 @@ class Weather extends Equatable {
       _$WeatherFromJson(json);
 
   Map<String, dynamic> toJson() => _$WeatherToJson(this);
+
+  String get iconUrl => '${AppCredentials.imageUrl}/wn/$icon@2x.png';
 
   @override
   List<Object?> get props => [

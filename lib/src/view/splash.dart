@@ -6,6 +6,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Logo()));
+    return const Scaffold(
+        body: Center(child: SizedBox(height: 150, child: Logo())));
   }
 }

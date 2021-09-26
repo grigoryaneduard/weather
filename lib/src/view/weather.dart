@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/src/bloc/base/base_bloc.dart';
-import 'package:weather/src/widgets/widgets.dart' show Header;
+import 'package:weather/src/widgets/widgets.dart' show Header, HourlyListView;
 
 class WeatherView extends StatelessWidget {
   const WeatherView({Key? key}) : super(key: key);
@@ -22,6 +21,8 @@ class WeatherView extends StatelessWidget {
                       child: Header(
                           timezone: state.data!.timezone,
                           forecast: state.data!.current)),
+                  const SizedBox(height: 20),
+                  HourlyListView(data: state.data!.hourly),
                 ],
               );
             }

@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 part 'forecast.g.dart';
 
 extension ForecastHourlyTime on ForecastHourly {
-  String parseToString() =>
+  String get dataTime =>
       DateFormat('MM-dd/kk:mm').format(DateTime.parse(dt.toString()));
 
   String get tempCelsius => '${(temp - 273.15).toStringAsFixed(1)}\u00B0';

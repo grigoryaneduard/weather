@@ -4,7 +4,7 @@ enum BaseStatus { initial, success, failure }
 
 class BaseState extends Equatable {
   final BaseStatus status;
-  final BaseResponse? data;
+  final OneCallResponse? data;
 
   const BaseState({
     this.status = BaseStatus.initial,
@@ -13,7 +13,7 @@ class BaseState extends Equatable {
 
   BaseState copyWith({
     BaseStatus? status,
-    BaseResponse? data,
+    OneCallResponse? data,
   }) {
     return BaseState(
       status: status ?? this.status,

@@ -18,6 +18,7 @@ dependencies:
   dio: ^4.0.0
   json_serializable: ^5.0.2
   geolocator: ^7.6.2
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather/src/models/one_call_response.dart';
+import 'package:weather/src/models/models.dart'
+    show OneCallResponse, ForecastHourlyTime;
 
 class Current extends StatelessWidget {
   final OneCallResponse data;

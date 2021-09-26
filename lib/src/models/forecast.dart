@@ -3,8 +3,29 @@ import 'package:weather/src/models/feels_like.dart';
 import 'package:weather/src/models/models.dart' show Weather, FeelsLike;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:weather/src/models/temp.dart';
+import 'package:intl/intl.dart';
 
 part 'forecast.g.dart';
+
+extension ForecastHourlyTime on ForecastHourly {
+  String parseToString() =>
+      DateFormat('MM-dd/kk:mm').format(DateTime.parse(dt.toString()));
+
+  String get tempCelsius => '${(temp - 273.15).toStringAsFixed(1)}\u00B0';
+
+  String get feelsLikeCelsius =>
+      '${(feelsLike - 273.15).toStringAsFixed(1)}\u00B0';
+}
+
+extension ForecastDailyTime on ForecastDaily {
+  String parseToString() =>
+      DateFormat('MM-dd/kk:mm').format(DateTime.parse(dt.toString()));
+
+  String get tempCelsius => '${(temp.day - 273.15).toStringAsFixed(1)}\u00B0';
+
+  String get feelsLikeCelsius =>
+      '${(feelsLike.day - 273.15).toStringAsFixed(1)}\u00B0';
+}
 
 @JsonSerializable()
 class ForecastHourly extends Equatable {
@@ -79,11 +100,6 @@ class ForecastHourly extends Equatable {
       _$ForecastHourlyFromJson(json);
 
   Map<String, dynamic> toJson() => _$ForecastHourlyToJson(this);
-
-  String get tempCelsius => '${(temp - 273.15).toStringAsFixed(1)}\u00B0';
-
-  String get feelsLikeCelsius =>
-      '${(feelsLike - 273.15).toStringAsFixed(1)}\u00B0';
 
   @override
   List<Object?> get props => [

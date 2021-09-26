@@ -10,6 +10,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:weather/src/view/view.dart' show SplashScreen;
 import 'package:weather/src/widgets/widgets.dart' show Current;
 
+
+
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
 
@@ -78,6 +80,7 @@ class _WeatherViewState extends State<WeatherView> {
                   children: [
                     Current(data: state.data as OneCallResponse),
 
+                    Text(state.data!.current.parseToString())
 
                   ],
                 ),

@@ -8,7 +8,7 @@ part 'forecast_daily.g.dart';
 
 extension ForecastDailyTime on ForecastDaily {
   String get dataTime =>
-      DateFormat('dd-MM-yyyy').format(DateTime.parse(dt.toString()));
+      DateFormat('dd-MM').format(DateTime.fromMicrosecondsSinceEpoch(dt));
 
   String get tempCelsius => '${(temp.day - 273.15).toStringAsFixed(1)}\u00B0';
 

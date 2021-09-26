@@ -7,7 +7,7 @@ part 'forecast_hourly.g.dart';
 
 extension ForecastHourlyTime on ForecastHourly {
   String get dataTime =>
-      DateFormat('MM-dd').format(DateTime.parse(dt.toString()));
+      DateFormat('hh a').format(DateTime.fromMicrosecondsSinceEpoch(dt));
 
   String get tempCelsius => '${(temp - 273.15).toStringAsFixed(1)}\u00B0';
 

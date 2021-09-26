@@ -15,19 +15,16 @@ class DailyListView extends StatelessWidget {
       margin: const EdgeInsets.all(16.0),
       child: Column(
         children: data
-            .map((f) => SizedBox(
-                  width: 80,
-                  height: 140,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.network(f.weather.first.iconUrl, height: 60),
-                        Text(f.tempCelsius,
-                            style: const TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold)),
-                      ],
-                    ),
+            .map((f) => Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.network(f.weather.first.iconUrl, height: 60),
+                      Text(f.tempCelsius,
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold)),
+                    ],
                   ),
                 ))
             .toList(),

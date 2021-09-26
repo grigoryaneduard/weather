@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/src/bloc/base/base_bloc.dart';
 import 'package:weather/src/models/coord.dart';
@@ -18,29 +20,31 @@ class MainScreen extends StatelessWidget {
         switch (snapshot.connectionState) {
           case ConnectionState.done:
             return Scaffold(
-              appBar: AppBar(title: const Text('Weather')),
-              body: FutureBuilder(
-                future: Geolocator.getLastKnownPosition(),
-                builder: (context, snapshot) {
-                  switch (snapshot.connectionState) {
-                    case ConnectionState.waiting:
-                      return const Center(child: Text('Loading....'));
-                    default:
-                      if (snapshot.hasError) {
-                        return Center(child: Text('Error: ${snapshot.error}'));
-                      } else {
-                        final position = snapshot.data as Position;
-                        return BlocProvider(
-                            create: (_) =>
-                                BaseBloc(baseRepository: ForecastRepository(Dio()))
-                                  ..add(BaseFetched(
-                                      coord: Coord(
-                                          lat: position.latitude,
-                                          lon: position.longitude))),
-                            child: const WeatherView());
-                      }
-                  }
-                },
+              body: SafeArea(
+                child: FutureBuilder(
+                  future: Geolocator.getLastKnownPosition(),
+                  builder: (context, snapshot) {
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.waiting:
+                        return const Center(child: CircularProgressIndicator());
+                      default:
+                        if (snapshot.hasError) {
+                          return Center(
+                              child: Text('Error: ${snapshot.error}'));
+                        } else {
+                          final position = snapshot.data as Position;
+                          return BlocProvider(
+                              create: (_) => BaseBloc(
+                                  baseRepository: ForecastRepository(Dio()))
+                                ..add(BaseFetched(
+                                    coord: Coord(
+                                        lat: position.latitude,
+                                        lon: position.longitude))),
+                              child: const WeatherView());
+                        }
+                    }
+                  },
+                ),
               ),
             );
           default:
@@ -65,11 +69,27 @@ class _WeatherViewState extends State<WeatherView> {
       builder: (context, state) {
         switch (state.status) {
           case BaseStatus.failure:
-            return const Center(child: Text('failed to fetch data'));
+            return const Center(child: Text('failed to fetch forecast'));
           case BaseStatus.success:
             if (state.data != null) {
-              return ListView(
-                children: [Text(state.data!.timezone)],
+              return Center(
+                child: Column(
+                  children: [
+                    const SizedBox(height: 20),
+                    Image.network(state.data!.current.weather.first.iconUrl),
+                    Text(state.data!.timezone,
+                        style: const TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold)),
+                    Text(state.data!.current.tempCelsius,
+                        style: const TextStyle(fontSize: 64)),
+                    Text(state.data!.current.weather.first.main,
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 10),
+                    Text(state.data!.current.weather.first.description,
+                        style: const TextStyle(fontSize: 14)),
+                  ],
+                ),
               );
             }
 

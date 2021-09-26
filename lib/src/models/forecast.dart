@@ -80,7 +80,10 @@ class ForecastHourly extends Equatable {
 
   Map<String, dynamic> toJson() => _$ForecastHourlyToJson(this);
 
-  String get tempCelsius => '${(temp - 273.15).toStringAsFixed(1)}\u00B0C';
+  String get tempCelsius => '${(temp - 273.15).toStringAsFixed(1)}\u00B0';
+
+  String get feelsLikeCelsius =>
+      '${(feelsLike - 273.15).toStringAsFixed(1)}\u00B0';
 
   @override
   List<Object?> get props => [

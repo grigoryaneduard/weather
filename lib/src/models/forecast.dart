@@ -9,7 +9,7 @@ part 'forecast.g.dart';
 @JsonSerializable()
 class ForecastHourly extends Equatable {
   @JsonKey(name: 'dt')
-  final int? dt;
+  final int dt;
 
   @JsonKey(name: 'temp')
   final double temp;

@@ -75,7 +75,11 @@ class _WeatherViewState extends State<WeatherView> {
             if (state.data != null) {
               return Center(
                 child: Column(
-                  children: [Current(data: state.data as OneCallResponse)],
+                  children: [
+                    Current(data: state.data as OneCallResponse),
+
+
+                  ],
                 ),
               );
             }

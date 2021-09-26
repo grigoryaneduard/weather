@@ -8,7 +8,7 @@ part of 'forecast.dart';
 
 ForecastHourly _$ForecastHourlyFromJson(Map<String, dynamic> json) =>
     ForecastHourly(
-      dt: json['dt'] as int?,
+      dt: json['dt'] as int,
       sunrise: json['sunrise'] as int?,
       sunset: json['sunset'] as int?,
       pressure: json['pressure'] as int,

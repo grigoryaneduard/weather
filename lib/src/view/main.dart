@@ -1,13 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/src/bloc/base/base_bloc.dart';
 import 'package:weather/src/models/coord.dart';
+import 'package:weather/src/models/models.dart';
 import 'package:weather/src/repository/forecast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather/src/view/view.dart' show SplashScreen;
+import 'package:weather/src/widgets/widgets.dart' show Current;
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -74,21 +75,7 @@ class _WeatherViewState extends State<WeatherView> {
             if (state.data != null) {
               return Center(
                 child: Column(
-                  children: [
-                    const SizedBox(height: 20),
-                    Image.network(state.data!.current.weather.first.iconUrl),
-                    Text(state.data!.timezone,
-                        style: const TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold)),
-                    Text(state.data!.current.tempCelsius,
-                        style: const TextStyle(fontSize: 64)),
-                    Text(state.data!.current.weather.first.main,
-                        style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 10),
-                    Text(state.data!.current.weather.first.description,
-                        style: const TextStyle(fontSize: 14)),
-                  ],
+                  children: [Current(data: state.data as OneCallResponse)],
                 ),
               );
             }

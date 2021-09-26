@@ -15,7 +15,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Future.delayed(const Duration(seconds: 1)),
+      future: Future.delayed(const Duration(seconds: 3)),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.done:

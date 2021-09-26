@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/src/bloc/base/base_bloc.dart';
@@ -16,12 +17,14 @@ class WeatherView extends StatelessWidget {
             return const Center(child: Text('failed to fetch forecast'));
           case BaseStatus.success:
             if (state.data != null) {
-              return Center(
-                child: Column(
-                  children: [
-                    Header(data: state.data as OneCallResponse),
-                  ],
-                ),
+              return Column(
+                children: [
+                  Center(child: Header(data: state.data as OneCallResponse)),
+
+
+
+
+                ],
               );
             }
 

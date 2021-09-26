@@ -7,10 +7,7 @@ import 'package:weather/src/models/coord.dart';
 import 'package:weather/src/models/models.dart';
 import 'package:weather/src/repository/forecast.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather/src/view/view.dart' show SplashScreen;
-import 'package:weather/src/widgets/widgets.dart' show Current;
-
-
+import 'package:weather/src/view/view.dart' show SplashScreen, WeatherView;
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -18,7 +15,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Future.delayed(const Duration(seconds: 3)),
+      future: Future.delayed(const Duration(seconds: 1)),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.done:
@@ -52,44 +49,6 @@ class MainScreen extends StatelessWidget {
             );
           default:
             return const SplashScreen();
-        }
-      },
-    );
-  }
-}
-
-class WeatherView extends StatefulWidget {
-  const WeatherView({Key? key}) : super(key: key);
-
-  @override
-  _WeatherViewState createState() => _WeatherViewState();
-}
-
-class _WeatherViewState extends State<WeatherView> {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<BaseBloc, BaseState>(
-      builder: (context, state) {
-        switch (state.status) {
-          case BaseStatus.failure:
-            return const Center(child: Text('failed to fetch forecast'));
-          case BaseStatus.success:
-            if (state.data != null) {
-              return Center(
-                child: Column(
-                  children: [
-                    Current(data: state.data as OneCallResponse),
-
-                    Text(state.data!.current.parseToString())
-
-                  ],
-                ),
-              );
-            }
-
-            return const Center(child: Text('no data'));
-          default:
-            return const Center(child: CircularProgressIndicator());
         }
       },
     );

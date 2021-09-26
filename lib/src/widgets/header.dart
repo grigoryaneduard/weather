@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:weather/src/models/models.dart'
     show OneCallResponse, ForecastHourlyTime;
 
-class Current extends StatelessWidget {
+class Header extends StatelessWidget {
   final OneCallResponse data;
 
-  const Current({Key? key, required this.data}) : super(key: key);
+  const Header({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

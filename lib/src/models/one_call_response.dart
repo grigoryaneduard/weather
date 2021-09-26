@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:weather/src/models/models.dart' show Forecast;
+import 'package:weather/src/models/forecast.dart';
 
 part 'one_call_response.g.dart';
 
@@ -19,13 +19,13 @@ class OneCallResponse extends Equatable {
   final int timezoneOffset;
 
   @JsonKey(name: 'current')
-  final Forecast current;
+  final ForecastHourly current;
 
   @JsonKey(name: 'hourly', defaultValue: [])
-  final List<Forecast> hourly;
+  final List<ForecastHourly> hourly;
 
   @JsonKey(name: 'daily', defaultValue: [])
-  final List<Forecast> daily;
+  final List<ForecastDaily> daily;
 
   const OneCallResponse({
     required this.lon,

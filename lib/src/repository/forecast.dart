@@ -19,8 +19,7 @@ class ForecastRepository implements IForecastRepository {
       const lang = 'en';
 
       final url =
-          '${AppCredentials.
-      baseUrl}/onecall?lat=${coord.lat}&lon=${coord.lon}&exclude=minutely,daily&lang=$lang&appId=${AppCredentials.key}';
+          '${AppCredentials.baseUrl}/onecall?lat=${coord.lat}&lon=${coord.lon}&exclude=minutely&lang=$lang&appId=${AppCredentials.key}';
 
       final response = await _dio.get(url);
 

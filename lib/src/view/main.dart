@@ -69,7 +69,7 @@ class _WeatherViewState extends State<WeatherView> {
           case BaseStatus.success:
             if (state.data != null) {
               return ListView(
-                children: const [Text('test')],
+                children: [Text(state.data!.timezone)],
               );
             }
 

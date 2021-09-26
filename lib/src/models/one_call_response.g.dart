@@ -12,13 +12,13 @@ OneCallResponse _$OneCallResponseFromJson(Map<String, dynamic> json) =>
       lat: (json['lat'] as num).toDouble(),
       timezone: json['timezone'] as String,
       timezoneOffset: json['timezone_offset'] as int,
-      current: Forecast.fromJson(json['current'] as Map<String, dynamic>),
+      current: ForecastHourly.fromJson(json['current'] as Map<String, dynamic>),
       hourly: (json['hourly'] as List<dynamic>?)
-              ?.map((e) => Forecast.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => ForecastHourly.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
       daily: (json['daily'] as List<dynamic>?)
-              ?.map((e) => Forecast.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => ForecastDaily.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
     );

@@ -7,13 +7,16 @@ import 'package:intl/intl.dart';
 part 'forecast_daily.g.dart';
 
 extension ForecastDailyTime on ForecastDaily {
-  String parseToString() =>
-      DateFormat('MM-dd/kk:mm').format(DateTime.parse(dt.toString()));
+  String get dataTime =>
+      DateFormat('dd-MM-yyyy').format(DateTime.parse(dt.toString()));
 
   String get tempCelsius => '${(temp.day - 273.15).toStringAsFixed(1)}\u00B0';
 
   String get feelsLikeCelsius =>
       '${(feelsLike.day - 273.15).toStringAsFixed(1)}\u00B0';
+
+  String get minMaxCelsius =>
+      '${(temp.min - 273.15).toStringAsFixed(1)}\u00B0/${(temp.max - 273.15).toStringAsFixed(1)}\u00B0';
 }
 
 @JsonSerializable()

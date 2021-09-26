@@ -24,6 +24,9 @@ class HourlyListView extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          Text(f.dataTime,
+                              style: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold)),
                           Image.network(f.weather.first.iconUrl, height: 60),
                           Text(f.tempCelsius,
                               style: const TextStyle(

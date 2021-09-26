@@ -18,12 +18,22 @@ class DailyListView extends StatelessWidget {
             .map((f) => Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.network(f.weather.first.iconUrl, height: 60),
-                      Text(f.tempCelsius,
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold)),
+                      Expanded(
+                          child: Image.network(f.weather.first.iconUrl,
+                              height: 60)),
+                      Expanded(
+                        flex: 2,
+                        child: Text(f.dataTime,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold)),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Text(f.minMaxCelsius,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold)),
+                      ),
                     ],
                   ),
                 ))

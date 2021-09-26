@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:weather/src/models/forecast.dart';
+import 'package:weather/src/models/models.dart'
+    show ForecastHourly, ForecastDaily;
 
 part 'one_call_response.g.dart';
 

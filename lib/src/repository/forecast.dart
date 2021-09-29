@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:weather/src/const/const.dart';
-import 'package:weather/src/models/models.dart' show Coord, OneCallResponse;
+import 'package:weather/src/models/models.dart'
+    show Coord, OneCallResponse, System;
 
 abstract class IForecastRepository {
   Future<OneCallResponse> forecastByCoord(Coord coord);
@@ -8,18 +9,15 @@ abstract class IForecastRepository {
 
 class ForecastRepository implements IForecastRepository {
   final Dio _dio;
+  final System _system;
 
-  ForecastRepository(this._dio);
+  ForecastRepository(this._dio, this._system);
 
   @override
   Future<OneCallResponse> forecastByCoord(Coord coord) async {
     try {
-      // add language
-
-      const lang = 'en';
-
       final url =
-          '${AppCredentials.baseUrl}/onecall?lat=${coord.lat}&lon=${coord.lon}&exclude=minutely&lang=$lang&appId=${AppCredentials.key}';
+          '${AppCredentials.baseUrl}/onecall?lat=${coord.lat}&lon=${coord.lon}&exclude=minutely&lang=${_system.lang}&appId=${AppCredentials.key}';
 
       final response = await _dio.get(url);
 

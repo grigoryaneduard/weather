@@ -7,6 +7,7 @@ import 'package:weather/src/models/coord.dart';
 import 'package:weather/src/models/models.dart';
 import 'package:weather/src/repository/forecast.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:weather/src/shared/setup.dart';
 import 'package:weather/src/view/view.dart' show SplashScreen, WeatherView;
 
 class MainScreen extends StatelessWidget {
@@ -35,7 +36,8 @@ class MainScreen extends StatelessWidget {
                           final position = snapshot.data as Position;
                           return BlocProvider(
                               create: (_) => BaseBloc(
-                                  baseRepository: ForecastRepository(Dio()))
+                                  baseRepository: ForecastRepository(
+                                      Dio(), getIt<System>()))
                                 ..add(BaseFetched(
                                     coord: Coord(
                                         lat: position.latitude,

@@ -1,31 +1,16 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:weather/src/app.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:weather/src/const/const.dart';
 
-class SimpleBlocObserver extends BlocObserver {
-  @override
-  void onTransition(Bloc bloc, Transition transition) {
-    super.onTransition(bloc, transition);
-    print(transition);
-  }
-
-  @override
-  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
-    print(error);
-    super.onError(bloc, error, stackTrace);
-  }
-}
+import 'src/shared/setup.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
-
-  Bloc.observer = SimpleBlocObserver();
+  await setup();
   runApp(EasyLocalization(
     supportedLocales: const [Locale('en', 'US'), Locale('ru', 'RU')],
     path: 'assets/translations',
-    fallbackLocale: const Locale('en', 'US'),
+    fallbackLocale: defaultLang,
     child: const App(),
   ));
 }

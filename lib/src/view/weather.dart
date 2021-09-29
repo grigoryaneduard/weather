@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/src/bloc/base/base_bloc.dart';
 import 'package:weather/src/widgets/widgets.dart'
     show DailyListView, Header, HourlyListView;
+import 'package:easy_localization/easy_localization.dart';
 
 class WeatherView extends StatelessWidget {
   const WeatherView({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class WeatherView extends StatelessWidget {
       builder: (context, state) {
         switch (state.status) {
           case BaseStatus.failure:
-            return const Center(child: Text('failed to fetch forecast'));
+            return Center(child: const Text('failed_to_fetch_forecast').tr());
           case BaseStatus.success:
             if (state.data != null) {
               return ListView(
@@ -29,7 +30,7 @@ class WeatherView extends StatelessWidget {
               );
             }
 
-            return const Center(child: Text('no data'));
+            return Center(child: const Text('no_data').tr());
           default:
             return const Center(child: CircularProgressIndicator());
         }
